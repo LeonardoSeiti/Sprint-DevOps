@@ -18,7 +18,7 @@ public class ClienteService{
         ClienteDAO.editar(cliente);
     }
 
-    public void deletar(id cliente) {
+    public void deletar(Cliente cliente) {
         ClienteDAO.deletar(cliente);
     }
 }

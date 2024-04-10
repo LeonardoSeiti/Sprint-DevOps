@@ -2,6 +2,7 @@ package com.emi.sprint1java.model;
 
 public class Cliente {
 
+    int id;
     String nome;
     String razaoSocial;
     String email;
