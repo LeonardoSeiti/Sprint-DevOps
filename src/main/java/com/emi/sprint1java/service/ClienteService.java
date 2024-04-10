@@ -1,7 +1,6 @@
 package com.emi.sprint1java.service;
 
 import com.emi.sprint1java.model.Cliente;
-
 import com.emi.sprint1java.dao.ClienteDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +13,12 @@ public class ClienteService{
 
     public void salvar(Cliente cliente) {
         ClienteDAO.salvar(cliente);
+    }
+    public void editar(Cliente cliente) {
+        ClienteDAO.editar(cliente);
+    }
+
+    public void deletar(id cliente) {
+        ClienteDAO.deletar(cliente);
     }
 }
