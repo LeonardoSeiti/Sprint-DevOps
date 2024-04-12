@@ -43,7 +43,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c27e223b638a9b0e7f2af17d944fb2b1eb63bf93
     </dependencies>
 
     <build>
