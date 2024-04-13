@@ -1,37 +1,19 @@
 package com.emi.sprint1java.model;
-import jakarta.persistence.Id;
-import lombok.Data;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "T_USUARIO")
 public class Cliente {
 
     @Id
-    int id;
-    String nome;
-    String razaoSocial;
-    String email;
-
-    String senha;
-
-    public void iniciarAtendimento(){
-
-    }
-
-    public void enviarMensagem(){
-
-    }
-
-    public void encerrarAtendimento(){
-
-    }
-
-    public void loginCliente(){
-
-    }
-
-    public void cadastroCliente(){
-        
-    }
+    int id_usuario;
+    String ds_email;
+    String ds_senha;
+    String nm_usuario;
+    String nm_empresa;
+    String nm_departamento;
 }
