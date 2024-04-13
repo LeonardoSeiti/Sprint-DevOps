@@ -11,14 +11,17 @@ public class ClienteService{
     @Autowired
     private ClienteDAO clienteDAO;
 
-    public void salvar(Cliente cliente) {
+    public Cliente salvar(Cliente cliente) {
         ClienteDAO.salvar(cliente);
+        return cliente;
     }
-    public void editar(Cliente cliente) {
+    public Cliente editar(Cliente cliente) {
         ClienteDAO.editar(cliente);
+        return cliente;
     }
 
-    public void deletar(Cliente cliente) {
-        ClienteDAO.deletar(cliente);
+    public Cliente deletar(Cliente cliente) {
+        ClienteDAO.deletar(cliente.getId());
+        return cliente;
     }
 }

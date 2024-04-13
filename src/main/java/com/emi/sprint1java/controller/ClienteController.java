@@ -6,15 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.CREATED;
+
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("cliente")
 public class ClienteController {
 
     @Autowired
-    private ClienteService clienteService;
+    ClienteService service;
 
     @PostMapping
-    public void salvarCliente(@RequestBody Cliente cliente) {
-        clienteService.salvar(cliente);
+    @ResponseStatus(CREATED)
+    public Cliente salvar(@RequestBody Cliente cliente) {
+        return service.salvar(cliente);
     }
+
+    ;
 }

@@ -4,10 +4,25 @@ import com.emi.sprint1java.model.Cliente;
 
 import java.util.List;
 
-public interface ClienteDAO {
-    void salvar(Cliente cliente);
-    Cliente buscarId(int id);
-    List<Cliente> buscarTodos();
-    void editar(Cliente cliente);
-    void deletar(int id);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteDAO extends JpaRepository   <Cliente, Long> {
+    static void salvar(Cliente cliente) {
+
+    }
+
+    default Cliente buscarId(int id) {
+        return null;
+    };
+    default List<Cliente> buscarTodos() {
+        return null;
+    };
+
+    static void editar(Cliente cliente) {
+
+    }
+
+    static void deletar(int id) {
+
+    }
 }
