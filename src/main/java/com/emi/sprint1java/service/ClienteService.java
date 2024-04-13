@@ -12,7 +12,10 @@ public class ClienteService {
     private ClienteRepository repository;
 
     public Cliente getCliente(int id) {
-        System.out.println(id);
         return repository.findById(id);
+    }
+
+    public Cliente setCliente(Cliente cliente) {
+        return repository.save(cliente);
     }
 }

@@ -16,4 +16,9 @@ public class ClienteController {
     public Cliente buscarId(@PathVariable int id) {
         return service.getCliente(id);
     }
+
+    @PostMapping
+    public Cliente salvar(@RequestBody Cliente cliente) {
+        return service.setCliente(cliente);
+    }
 }
