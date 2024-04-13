@@ -9,17 +9,14 @@ import java.util.List;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
-@RequestMapping("cliente")
+@RequestMapping("clientes")
 public class ClienteController {
 
     @Autowired
     ClienteService service;
 
-    @PostMapping
-    @ResponseStatus(CREATED)
-    public Cliente salvar(@RequestBody Cliente cliente) {
-        return service.salvar(cliente);
+    @GetMapping("/{id}")
+    public Cliente buscarId(@PathVariable int id) {
+        return service.getCliente(id);
     }
-
-    ;
 }
