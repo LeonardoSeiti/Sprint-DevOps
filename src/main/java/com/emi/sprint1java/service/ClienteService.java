@@ -18,4 +18,14 @@ public class ClienteService {
     public Cliente setCliente(Cliente cliente) {
         return repository.save(cliente);
     }
+
+    public Cliente deleteCliente(int id) {
+        Cliente cliente = repository.findById(id);
+        repository.delete(cliente);
+        return cliente;
+        
+    }
+    public Cliente save(Cliente cliente) {
+        return repository.save(cliente);
+    }
 }
