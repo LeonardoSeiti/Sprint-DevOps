@@ -1,5 +1,5 @@
-# Projeto XXXX
-O XXXXX é um assistente virtual inteligente projetado para ajudar as empresas a oferecer um atendimento ao cliente mais eficiente e personalizado. Utilizando tecnologias avançadas de processamento de linguagem natural e aprendizado de máquina, o XXXXX pode entender as perguntas dos clientes, fornecer respostas relevantes em tempo real e resolver problemas comuns de forma automatizada.
+# Projeto Emi Chatbot
+O Emi é um assistente virtual inteligente projetado para ajudar as empresas a oferecer um atendimento ao cliente mais eficiente e personalizado. Utilizando tecnologias avançadas de processamento de linguagem natural e aprendizado de máquina, o Emi pode entender as perguntas dos clientes, fornecer respostas relevantes em tempo real e resolver problemas comuns de forma automatizada.
 
 ## Integrantes do grupo
 
@@ -23,11 +23,12 @@ O usuário para se cadastrar deve inserir:
 Após inserir os dados, poderá ter acesso ao serviço de atendimento ao cliente
 
 ## Imagens
-![Diagrama de intidades](https://github.com/LeonardoSeiti/SP1JV/assets/124947715/84950454-7c71-46f1-91fd-69700bed2090)
+![Diagrama de intidades](https://github.com/EzequielBispo/SPRINT1JAVA/assets/73908875/c4e01fab-edab-440f-877a-4be5be264f39>
+)
 ![DER_SPRINT1](https://github.com/LeonardoSeiti/SP1JV/assets/124947715/8d9740ea-c9b5-4f26-8e6f-4de69d04944a)
 
 ## Link do vídeo
-[https://drive.google.com/file/d/1DQ_0KMueXM-P8aXagJPv_FjTpq5bmNfn/view?usp=sharing](https://drive.google.com/file/d/1DQ_0KMueXM-P8aXagJPv_FjTpq5bmNfn/view?usp=sharing)
+[Vídeo Pitch](https://youtu.be/P-d5eqKIJ2Q)
 
 ## EndPoints
 `GET` {/id} <br>
