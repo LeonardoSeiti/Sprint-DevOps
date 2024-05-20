@@ -1,6 +1,8 @@
 package com.emi.sprint1java.controller;
 
+import com.emi.sprint1java.exceptions.ClientDeleteException;
 import com.emi.sprint1java.exceptions.ClientNotFoundException;
+import com.emi.sprint1java.exceptions.ClientBadRequest;
 import com.emi.sprint1java.model.Cliente;
 import com.emi.sprint1java.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,10 +28,13 @@ public class ClienteController {
             description = "Retorna pesquisa de cliente por ID")
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente encontrado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
-    public Cliente buscarId(@PathVariable int id) {
+    public ResponseEntity<Object> buscarId(@PathVariable int id) {
         Cliente cliente = service.getCliente(id);
         if (cliente != null) {
-            return cliente;
+            cliente.setId_usuario(id);
+            Cliente updatedCliente = service.save(cliente);
+            String message = "Cliente atualizado com sucesso.";
+            return ResponseEntity.ok().body(new UpdateResponse(cliente, message));
         } else {
             throw new ClientNotFoundException(id);
         }
@@ -60,7 +65,7 @@ public class ClienteController {
         if (cliente != null) {
             service.deleteCliente(id);
         } else {
-            throw new ClientNotFoundException(id);
+            throw new ClientDeleteException(id);
         }
     }
 
@@ -71,6 +76,7 @@ public class ClienteController {
             description = "Atualiza cadastro do cliente")
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente atualizado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<Object> atualizar(@PathVariable int id, @RequestBody Cliente cliente) {
         Cliente existente = service.getCliente(id);
         if (existente != null) {
@@ -79,7 +85,7 @@ public class ClienteController {
             String message = "Cliente atualizado com sucesso.";
             return ResponseEntity.ok().body(new UpdateResponse(updatedCliente, message));
         } else {
-            throw new ClientNotFoundException(id);
+            throw new ClientBadRequest(id);
         }
     }
 
