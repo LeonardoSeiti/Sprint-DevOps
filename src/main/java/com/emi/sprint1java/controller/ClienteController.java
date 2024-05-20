@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -53,6 +54,7 @@ public class ClienteController {
             description = "Deleta o cadastro do cliente")
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente deletado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable int id) {
         Cliente cliente = service.getCliente(id);
         if (cliente != null) {
@@ -67,16 +69,36 @@ public class ClienteController {
     @Operation(
             summary = "Atualizar cadastro do cliente",
             description = "Atualiza cadastro do cliente")
-    @ApiResponse(responseCode = "201", description = "Cadastro do cliente atualizado")
+    @ApiResponse(responseCode = "200", description = "Cadastro do cliente atualizado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cliente atualizar(@PathVariable int id, @RequestBody Cliente cliente) {
+    public ResponseEntity<Object> atualizar(@PathVariable int id, @RequestBody Cliente cliente) {
         Cliente existente = service.getCliente(id);
         if (existente != null) {
-            cliente.setId(id);
-            return service.save(cliente);
+            cliente.setId_usuario(id);
+            Cliente updatedCliente = service.save(cliente);
+            String message = "Cliente atualizado com sucesso.";
+            return ResponseEntity.ok().body(new UpdateResponse(updatedCliente, message));
         } else {
             throw new ClientNotFoundException(id);
+        }
+    }
+
+    // Classe modelo para resposta de atualização
+    static class UpdateResponse {
+        private Cliente cliente;
+        private String message;
+
+        public UpdateResponse(Cliente cliente, String message) {
+            this.cliente = cliente;
+            this.message = message;
+        }
+
+        public Cliente getCliente() {
+            return cliente;
+        }
+
+        public String getMessage() {
+            return message;
         }
     }
 }
