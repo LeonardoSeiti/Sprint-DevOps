@@ -1,4 +1,4 @@
-package com.emi.sprint1java.dao;
+package com.emi.sprint1java.repository;
 
 import com.emi.sprint1java.model.Cliente;
 
