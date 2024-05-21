@@ -31,7 +31,7 @@ http://localhost:8080/swagger-ui/index.html#/docs
 ![DER_SPRINT1](https://github.com/LeonardoSeiti/SP1JV/assets/124947715/8d9740ea-c9b5-4f26-8e6f-4de69d04944a)
 
 ## Link do vídeo
-[Vídeo Pitch](https://youtu.be/P-d5eqKIJ2Q](https://youtu.be/oEyB0rZntmE)v)
+[Vídeo Pitch](https://www.youtube.com/watch?v=oEyB0rZntmE)
 
 ## EndPoints
 `GET` {/id} <br>
