@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - api-sprint-emi
+name: Build and deploy WAR app to Azure Web App - sprint3-api
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -29,10 +29,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/target/*.war'
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
@@ -49,15 +49,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D32D1DB7A23F417BAA32E3692210B04D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9DA51EB122794D9A8B9329C48E3554C7 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4A0A18123F664D4584FEB15DC9600B4F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_EA80815D20CE4F62B08C6BF09AB98040 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4F5236A31208467CA8F84D57AB75526F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_13D76648B16A4C2FA488B88361771441 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'api-sprint-emi'
+          app-name: 'sprint3-api'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*.war'
           
