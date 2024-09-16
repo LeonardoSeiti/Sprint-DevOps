@@ -15,7 +15,7 @@ O Emi é um assistente virtual inteligente projetado para ajudar as empresas a o
 Ezequiel Bispo de Jesus<br>
 Leonardo Seiti de Souza
 
-#Requisitor do sistema / System requirements
+#Requisitos do sistema / System requirements
 
 ### Via local host
 - [Maven ver. 3.8.X+](https://maven.apache.org/download.cgi)
@@ -35,16 +35,13 @@ Após inserir os dados, poderá ter acesso ao serviço de atendimento do Emi
 
 ## Link demonstração funcionamento do projeto
 
-[Youtube]()
+[Youtube](https://youtu.be/XDbw8Rf_-4o)
 
-## Documentação do projeto usando swagger (De forma local)
-http://localhost:8080/swagger-ui/index.html#/docs
-
-
+## Documentação do projeto usando swagger
+[Docs](https://api-sprint-emi.azurewebsites.net/swagger-ui/index.html)
 
 ## EndPoints
 `POST` /pesquisa <br>
-
 
 ```js
 [
