@@ -1,9 +1,10 @@
 package com.emi.sprint1java.service;
 
-import com.emi.sprint1java.model.Cliente;
-import com.emi.sprint1java.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.emi.sprint1java.cliente.Cliente;
+import com.emi.sprint1java.cliente.ClienteRepository;
 
 @Service
 public class ClienteService {
@@ -11,7 +12,7 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
-    public Cliente getCliente(int id) {
+    public Cliente getCliente(long id) {
         return repository.findById(id);
     }
 
@@ -19,7 +20,7 @@ public class ClienteService {
         return repository.save(cliente);
     }
 
-    public Cliente deleteCliente(int id) {
+    public Cliente deleteCliente(long id) {
         Cliente cliente = repository.findById(id);
         repository.delete(cliente);
         return cliente;

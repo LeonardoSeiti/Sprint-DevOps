@@ -1,7 +1,6 @@
-package com.emi.sprint1java.controller;
+package com.emi.sprint1java.cliente;
 
 import com.emi.sprint1java.exceptions.ClientNotFoundException;
-import com.emi.sprint1java.model.Cliente;
 import com.emi.sprint1java.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,7 +30,7 @@ public class ClienteController {
             description = "Retorna pesquisa de cliente por ID")
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente encontrado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
-    public EntityModel<Cliente> buscarId(@PathVariable int id) {
+    public EntityModel<Cliente> buscarId(@PathVariable long id) {
         Cliente cliente = service.getCliente(id);
         if (cliente == null) {
             throw new ClientNotFoundException(id);
@@ -55,10 +54,10 @@ public class ClienteController {
     public ResponseEntity<EntityModel<Cliente>> salvar(@RequestBody Cliente cliente) {
         Cliente savedCliente = service.setCliente(cliente);
         EntityModel<Cliente> resource = EntityModel.of(savedCliente);
-        resource.add(linkTo(methodOn(ClienteController.class).buscarId(savedCliente.getId_usuario())).withSelfRel());
+        resource.add(linkTo(methodOn(ClienteController.class).buscarId(savedCliente.getId())).withSelfRel());
         resource.add(linkTo(methodOn(ClienteController.class).salvar(cliente)).withRel("salvar"));
-        resource.add(linkTo(methodOn(ClienteController.class).deletar(savedCliente.getId_usuario())).withRel("deletar"));
-        resource.add(linkTo(methodOn(ClienteController.class).atualizar(savedCliente.getId_usuario(), cliente)).withRel("atualizar"));
+        resource.add(linkTo(methodOn(ClienteController.class).deletar(savedCliente.getId())).withRel("deletar"));
+        resource.add(linkTo(methodOn(ClienteController.class).atualizar(savedCliente.getId(), cliente)).withRel("atualizar"));
         return ResponseEntity.status(HttpStatus.CREATED).body(resource);
     }
 
@@ -70,7 +69,7 @@ public class ClienteController {
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente deletado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ResponseEntity<?> deletar(@PathVariable int id) {
+    public ResponseEntity<?> deletar(@PathVariable long id) {
         Cliente cliente = service.getCliente(id);
         if (cliente == null) {
             throw new ClientNotFoundException(id);
@@ -86,12 +85,12 @@ public class ClienteController {
             description = "Atualiza cadastro do cliente")
     @ApiResponse(responseCode = "200", description = "Cadastro do cliente atualizado")
     @ApiResponse(responseCode = "404", description = "Cliente não encontrado")
-    public ResponseEntity<EntityModel<Cliente>> atualizar(@PathVariable int id, @RequestBody Cliente cliente) {
+    public ResponseEntity<EntityModel<Cliente>> atualizar(@PathVariable long id, @RequestBody Cliente cliente) {
         Cliente existente = service.getCliente(id);
         if (existente == null) {
             throw new ClientNotFoundException(id);
         }
-        cliente.setId_usuario(id);
+        cliente.setId(id);
         Cliente updatedCliente = service.save(cliente);
         EntityModel<Cliente> resource = EntityModel.of(updatedCliente);
         resource.add(linkTo(methodOn(ClienteController.class).buscarId(id)).withSelfRel());
