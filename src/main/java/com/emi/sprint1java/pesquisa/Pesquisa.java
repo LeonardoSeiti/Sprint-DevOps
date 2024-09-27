@@ -26,5 +26,7 @@ public class Pesquisa {
     @NotBlank(message = "Tipo não pode ser vazio")
     // Tipo  de ameaça malware, phishing
     private String tipo;
+    //Url do site suspeito
+    private String url;
 
 }
