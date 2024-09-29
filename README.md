@@ -17,7 +17,6 @@ Leonardo Seiti de Souza
 
 #Requisitos do sistema / System requirements
 
-### Via local host
 - [Maven ver. 3.8.X+](https://maven.apache.org/download.cgi)
 - [Java JDK 17](https://www.oracle.com/br/java/technologies/downloads/#java17)
 - IDE VSCode or InteliJ
@@ -35,12 +34,12 @@ O usuário para se cadastrar deve inserir:
 
 Após inserir os dados, poderá ter acesso ao serviço de atendimento do Emi
 
-## Link demonstração funcionamento do projeto
+## Link demonstração do deploy do projeto
 
-[Youtube](https://youtu.be/XDbw8Rf_-4o)
+[Youtube](https://youtu.be/gMACdKv88gc)
 
 ## Documentação do projeto usando swagger
-[Docs](https://api-sprint-emi.azurewebsites.net/swagger-ui/index.html)
+[Docs](https://sprint-emi.azurewebsites.net/swagger-ui/index.html)
 
 ## EndPoints
 `POST` /pesquisa <br>
