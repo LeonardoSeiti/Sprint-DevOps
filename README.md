@@ -1,5 +1,5 @@
 # Projeto Emi Chatbot
-O Emi é um assistente virtual inteligente projetado para ajudar as empresas a oferecer um atendimento ao cliente mais eficiente e personalizado. Utilizando tecnologias avançadas de processamento de linguagem natural e aprendizado de máquina, o Emi pode entender as perguntas dos clientes, fornecer respostas relevantes em tempo real e resolver problemas comuns de forma automatizada.
+Descrição: O Emi é um Chatbot de Threat Intelligence que utiliza inteligência artificial para buscar e identificar domínios maliciosos, sites falsos e dados vazados de uma marca ou companhia. Nossa solução visa proteger a integridade e a reputação de empresas, oferecendo uma camada extra de segurança contra ameaças cibernéticas.
 
 ## Integrantes do grupo
 
